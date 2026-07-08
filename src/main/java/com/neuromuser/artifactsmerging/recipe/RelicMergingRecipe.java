@@ -24,9 +24,6 @@ public class RelicMergingRecipe extends CustomRecipe {
     );
 
 
-    private static final TagKey<Item> RELICS_TAG = TagKey.create(Registries.ITEM,
-            ResourceLocation.fromNamespaceAndPath("artifactsmerging", "relics"));
-
     public RelicMergingRecipe(CraftingBookCategory category) {
         super(category);
     }

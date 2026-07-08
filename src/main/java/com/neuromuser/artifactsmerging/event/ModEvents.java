@@ -65,6 +65,16 @@ public class ModEvents {
             ResourceLocation key = BuiltInRegistries.ITEM.getKey(item);
             if (key.getNamespace().equals(namespace) && item != ex1 && item != ex2) {
                 if (namespace.equals("relics") && RELICS_EXCLUDED.contains(key.getPath())) continue;
+
+                if (namespace.equals("artifacts")) {
+                    if (key.getPath().equals("mimic_spawn_egg")) {continue;}
+
+                    var lootConfig = artifacts.Artifacts.CONFIG.items.generatesAsLoot(item);
+                    if (lootConfig != null && !lootConfig.get()) {
+                        continue;
+                    }
+                }
+
                 candidates.add(item);
             }
         }
@@ -72,7 +82,6 @@ public class ModEvents {
         if (candidates.isEmpty()) return stack;
         return new ItemStack(candidates.get((int) (Math.random() * candidates.size())));
     }
-
     private static void playSound(Player player) {
         player.level().playSound(null, player.getX(), player.getY(), player.getZ(),
                 SoundEvents.ENCHANTMENT_TABLE_USE, SoundSource.PLAYERS, 1.0F, 1.2F);

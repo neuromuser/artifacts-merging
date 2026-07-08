@@ -18,9 +18,6 @@ import org.jetbrains.annotations.NotNull;
 
 public class ArtifactMergingRecipe extends CustomRecipe {
 
-    private static final TagKey<Item> ARTIFACTS_TAG = TagKey.create(Registries.ITEM,
-            ResourceLocation.fromNamespaceAndPath("artifactsmerging", "artifacts"));
-
     public ArtifactMergingRecipe(CraftingBookCategory category) {
         super(category);
     }

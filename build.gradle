@@ -41,7 +41,7 @@ repositories {
 dependencies {
     implementation "net.neoforged:neoforge:${neo_version}"
 
-    compileOnly "curse.maven:artifacts-312353:${artifacts_file_id}"
+    implementation "curse.maven:artifacts-312353:${artifacts_file_id}"
 }
 
 tasks.named('processResources', ProcessResources).configure {
